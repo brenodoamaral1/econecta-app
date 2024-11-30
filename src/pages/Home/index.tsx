@@ -18,7 +18,9 @@ const Home: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    flex: 1,
+    padding: 16,
+    backgroundColor: "#fff",
   },
 })
 
