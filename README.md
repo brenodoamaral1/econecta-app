@@ -76,10 +76,7 @@ git clone https://github.com/brenodoamaral1/econecta-app.git
 
 Navegue até a pasta do projeto clonado e execute os seguintes comandos para instalar as dependências necessárias:
 ```bash
-cd frontend
-npm install
-
-cd backend
+cd econecta-app
 npm install
 ```
 
@@ -88,7 +85,7 @@ npm install
 ### Passo 1: Iniciar o Servidor Expo
 No terminal, dentro da pasta do projeto, execute:
 ```bash
-cd frontend
+cd econecta-app
 npx expo start
 ```
 
@@ -102,28 +99,3 @@ Acesse na tela de log-in pelos seguintes usuários:
 username: (colocar aqui)
 senha: (colocar aqui)
 ```
-
-## Como contribuir 🤝
-### Branches
-Pull requests devem ser compostos pelo tipo e nome da branch.\
-os nomes das branchs devem ser separados por "-".\
-os tipo são compostos por:
-- feature - Para novas funcionalidades
-- fix - Para bugfixes e hotfixes
-
-Exemplo: 
-`feature/navbar-mobile`
-
-### Commits
-Commits devem ser estruturados da seguinte forma <tipo>(<nome-da-branch>): <descrição do commit>\
-Exemplo: 
-`feature(navbar-mobile): adicionando navegação`
-
-### Branch padrão
-- develop
-
-### Pull requests
-Pull requests devem ter uma boa e clara descrição.\
-Os 2 principais tópicos da descrição devem ser:
-`- What I did`
-`- How to test`
