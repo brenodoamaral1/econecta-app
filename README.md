@@ -53,7 +53,7 @@ Wictor Melo<br/>
 
 ## Machine Learning 🧠
 🔗 **Repositório do Modelo de Recomendação:**  
-[https://github.com/luislauriano/econecta](https://github.com/luislauriano/econecta)
+[clone https://github.com/luislauriano/econecta](https://github.com/luislauriano/econecta)
 
 🚀 **Teste o modelo diretamente pelo link:**  
 Acesse aqui: [https://econecta.streamlit.app/](https://econecta.streamlit.app/)
