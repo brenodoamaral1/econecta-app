@@ -11,15 +11,10 @@ const App: React.FC = () => {
     { id: "3", image: "https://via.placeholder.com/100", name: "Recomendação 3" },
   ];
 
-  return (
-  <SafeAreaView>  
+  return (  
     <ScrollView style={styles.container}>
       {/* Header */}
-      <Header
-        name="Koda Lima"
-        membershipLevel="PRATA"
-        profileImage=""
-      />
+      <Header />
 
       {/* Search Bar */}
       <View style={styles.searchContainer}>
@@ -81,7 +76,6 @@ const App: React.FC = () => {
         showsHorizontalScrollIndicator={false}
       />
     </ScrollView> 
-  </SafeAreaView>
   );
 };
 

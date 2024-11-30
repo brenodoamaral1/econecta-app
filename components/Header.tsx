@@ -2,29 +2,28 @@ import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
  // Certifique-se de ter o ícone na pasta correta
 
-interface HeaderProps {
-  name: string;
-  membershipLevel: string; // Exemplo: "PRATA", "OURO"
-  profileImage: string; // URL ou caminho da imagem
-}
-
-const Header: React.FC<HeaderProps> = ({ name, membershipLevel, profileImage }) => {
+const Header = () => {
   return (
     <View style={styles.container}>
       <View style={styles.textContainer}>
-        <Text style={styles.greetingText}>Olá, {name}!</Text>
+        <Text style={styles.greetingText}>Olá, Koda Lima!</Text>
         <View style={styles.membershipContainer}>
           {/* <StarIcon width={16} height={16} fill="#A3A3A3" style={styles.starIcon} /> */}
-          <Text style={styles.membershipText}>{membershipLevel}</Text>
+          <Text style={styles.membershipText}>PRATA</Text>
         </View>
       </View>
-      <Image source={{ uri: profileImage }} style={styles.profileImage} />
+      <Image
+        style={styles.profileImage}
+        source={{uri: '../../assets/images/profileimage1.jpg'}}
+        />
+
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 60,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
