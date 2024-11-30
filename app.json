@@ -1,28 +1,28 @@
 {
   "expo": {
-    "name": "econecta-app",
-    "slug": "econecta-app",
+    "name": "Econecta",
+    "slug": "econecta",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/Logotipo1.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/icon.png",
+      "image": "./assets/econectaLogo1.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#46953C"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/econectaLogo1.png",
+        "backgroundColor": "#46953C"
       }
     },
     "web": {
-      "favicon": "./assets/icon.png"
+      "favicon": "./assets/Logotipo1.png"
     }
   }
 }
