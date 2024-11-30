@@ -70,6 +70,7 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
               value={rememberMe}
               onValueChange={setRememberMe}
               style={styles.checkbox}
+              color={rememberMe ? '#B6D985' : undefined}
             />
             <Text style={styles.rememberMeText}>Lembrar-me</Text>
           </View>
@@ -158,6 +159,7 @@ const styles = StyleSheet.create({
   rememberMeContainer: {
     flexDirection: "row",
     alignItems: "center",
+    margin: 5
   },
   checkbox: {
     marginRight: 8,
