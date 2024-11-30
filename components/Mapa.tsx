@@ -10,6 +10,7 @@ import {
 import MapView, { Marker } from "react-native-maps";
 
 import AlertaPin from '../assets/AlertaPin.svg'
+import { SafeAreaView } from "react-native-safe-area-context";
 
 interface InputFields {
   titulo: string;
@@ -48,7 +49,9 @@ const MapaAlerta: React.FC<AdicionarAlertaProps> = ({ navigation }) => {
   };
 
   return (
+    <SafeAreaView>
     <ScrollView style={styles.container}>
+      
       <View style={styles.header}>
         <AlertaPin />
         <Text style={styles.title}>Mapa de Alerta</Text>
@@ -152,7 +155,9 @@ const MapaAlerta: React.FC<AdicionarAlertaProps> = ({ navigation }) => {
       <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
         <Text style={styles.submitText}>Enviar</Text>
       </TouchableOpacity>
+      
     </ScrollView>
+    </SafeAreaView>
   );
 };
 
