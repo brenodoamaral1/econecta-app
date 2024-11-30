@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
   Image,
+  ScrollView,
 } from 'react-native';
 
 import Carousel from './Carousel';
@@ -13,7 +14,10 @@ import Like from '../assets/Like.svg'
 import Dislike from '../assets/Dislike.svg'
 import Share from '../assets/Share.svg'
 import Comments from '../assets/Comments.svg'
+
 import { Divider } from 'react-native-paper';
+import PostButton from './PostButton';
+import CriarPostagem from './CriarPostagem';
 
 const posts = [
   {
@@ -56,128 +60,123 @@ const posts = [
   },
 ];
 
-const SocialFeed: React.FC = () => {
-  return (
-    <View style={styles.container}>
-      {posts.map((post) => (
-        <View key={post.id} style={styles.card}>
-          {/* Autor e tempo */}
-          <View style={styles.header}>
-            <Image
-              source={{
-                uri: post.avatar, // Avatar específico do autor
-              }}
-              style={styles.avatar}
-            />
-            <View style={styles.headerText}>
-              <Text style={styles.author}>{post.author}</Text>
-              <Text style={styles.time}>{post.time}</Text>
-            </View>
-          </View>
-      
-          {/* Conteúdo */}
-          <Text style={styles.content}>{post.content}</Text>
+const ComunidadeConectada: React.FC = () => {
 
-          {/* Carrossel de imagens específicas para cada post */}
-          <Carousel data={post.images} />
+    const [showCriarPostagem, setShowCriarPostagem] = useState(false);
 
-          {/* Botões de interação */}
-        <View style={styles.actionContainer}>  
-            <View style={styles.actions}>
-                <TouchableOpacity style={styles.actionButton}>
+    return (
+      <View style={styles.container}>
+        <View style={ styles.contentContainer }>
+          {posts.map((post) => (
+            <View key={post.id} style={styles.card}>
+              {/* Autor e tempo */}
+              <View style={styles.header}>
+                <Image
+                  source={{
+                    uri: post.avatar, // Avatar específico do autor
+                  }}
+                  style={styles.avatar}
+                />
+                <View style={styles.headerText}>
+                  <Text style={styles.author}>{post.author}</Text>
+                  <Text style={styles.time}>{post.time}</Text>
+                </View>
+              </View>
+  
+              {/* Conteúdo */}
+              <Text style={styles.content}>{post.content}</Text>
+  
+              {/* Carrossel de imagens específicas para cada post */}
+              <Carousel data={post.images} />
+  
+              {/* Botões de interação */}
+              <View style={styles.actionContainer}>
+                <View style={styles.actions}>
+                  <TouchableOpacity style={styles.actionButton}>
                     <Like />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.actionButton}>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.actionButton}>
                     <Dislike />
-                </TouchableOpacity>
-            </View>
-            <View style={styles.actions}>
-                <TouchableOpacity style={styles.actionButton}>
+                  </TouchableOpacity>
+                </View>
+                <View style={styles.actions}>
+                  <TouchableOpacity style={styles.actionButton}>
                     <Share />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.actionButton}>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.actionButton}>
                     <Comments />
-                </TouchableOpacity>
+                  </TouchableOpacity>
+                </View>
+              </View>
             </View>
+          ))}
         </View>
-        <Divider />
-    </View>
-      ))}
-    </View>
-    
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    padding: 16,
-  },
-  card: {
-    backgroundColor: '#fff',
-    marginBottom: 16,
-    padding: 16,
-    borderRadius: 8,
-    // shadowColor: '#000',
-    // shadowOffset: { width: 0, height: 1 },
-    // shadowOpacity: 0.1,
-    // shadowRadius: 2,
-    // elevation: 2,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 8,
-  },
-  avatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    marginRight: 8,
-  },
-  headerText: {
-    flex: 1,
-  },
-  author: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  time: {
-    fontSize: 12,
-    color: '#777',
-  },
-  content: {
-    fontSize: 14,
-    color: '#333',
-    marginBottom: 8,
-  },
-  actionContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  actions: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginTop: 8,
-  },
-  actionButton: {
-    padding: 8,
-  },
-  relatedButton: {
-    marginTop: 8,
-    padding: 8,
-    backgroundColor: '#e3f2fd',
-    borderRadius: 8,
-    alignItems: 'center',
-  },
-  relatedText: {
-    fontSize: 14,
-    color: '#1e88e5',
-    fontWeight: 'bold',
-  },
-});
-
-export default SocialFeed;
+        <PostButton onPress={() => setShowCriarPostagem(true)} />
+        {/* Tela Criar Postagem */}
+        {showCriarPostagem && (
+        <CriarPostagem onClose={() => setShowCriarPostagem(false)} />
+      )}
+      </View>
+    );
+  };
+  
+  const styles = StyleSheet.create({
+    container: {
+      position: 'relative', // Define posição relativa para o PostButton
+      flex: 1,
+      backgroundColor: '#fff',
+      
+    },
+    contentContainer: {
+        marginBottom: 60,
+    },
+    card: {
+      backgroundColor: '#fff',
+      marginBottom: 16,
+      padding: 16,
+      borderRadius: 8,
+    },
+    header: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: 8,
+    },
+    avatar: {
+      width: 40,
+      height: 40,
+      borderRadius: 20,
+      marginRight: 8,
+    },
+    headerText: {
+      flex: 1,
+    },
+    author: {
+      fontSize: 16,
+      fontWeight: 'bold',
+      color: '#333',
+    },
+    time: {
+      fontSize: 12,
+      color: '#777',
+    },
+    content: {
+      fontSize: 14,
+      color: '#333',
+      marginBottom: 8,
+    },
+    actionContainer: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    actions: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      marginTop: 8,
+    },
+    actionButton: {
+      padding: 8,
+    },
+  });
+  
+  export default ComunidadeConectada;
