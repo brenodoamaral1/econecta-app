@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   TextInput,
@@ -6,12 +6,18 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
-import { Feather } from '@expo/vector-icons'; // Ou outra lib de ícones
+import { Feather } from '@expo/vector-icons';
+import CalculadoraVerde from './CalculadoraVerde'; // Importa o componente CalculadoraVerde
+import AprendeMais from './AprendeMais'; // Importa o componente AprendeMais
+import ComunidadeConectada from './ComunidadeConectada'; // Importa o componente ComunidadeConectada
 
 const SearchComponent: React.FC = () => {
+  // Estado inicial com "Calculadora Verde" já ativo
+  const [activeComponent, setActiveComponent] = useState<string>('CalculadoraVerde');
+
   return (
     <View style={styles.container}>
-      
+      {/* Campo de busca */}
       <View style={styles.searchBar}>
         <TextInput
           placeholder="O que você deseja procurar?"
@@ -22,17 +28,61 @@ const SearchComponent: React.FC = () => {
 
       {/* Botões */}
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={[styles.button, styles.highlightButton]}>
-          <Text style={[styles.buttonText, styles.highlightText]}>
+        <TouchableOpacity
+          style={[
+            styles.button,
+            activeComponent === 'CalculadoraVerde' && styles.highlightButton,
+          ]}
+          onPress={() => setActiveComponent('CalculadoraVerde')}
+        >
+          <Text
+            style={[
+              styles.buttonText,
+              activeComponent === 'CalculadoraVerde' && styles.highlightText,
+            ]}
+          >
             Calculadora Verde
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Aprende Mais</Text>
+        <TouchableOpacity
+          style={[
+            styles.button,
+            activeComponent === 'AprendeMais' && styles.highlightButton,
+          ]}
+          onPress={() => setActiveComponent('AprendeMais')}
+        >
+          <Text
+            style={[
+              styles.buttonText,
+              activeComponent === 'AprendeMais' && styles.highlightText,
+            ]}
+          >
+            Aprende Mais
+          </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Comunidade Conectada</Text>
+        <TouchableOpacity
+          style={[
+            styles.button,
+            activeComponent === 'ComunidadeConectada' && styles.highlightButton,
+          ]}
+          onPress={() => setActiveComponent('ComunidadeConectada')}
+        >
+          <Text
+            style={[
+              styles.buttonText,
+              activeComponent === 'ComunidadeConectada' && styles.highlightText,
+            ]}
+          >
+            Comunidade Conectada
+          </Text>
         </TouchableOpacity>
+      </View>
+
+      {/* Renderização Condicional */}
+      <View style={styles.contentContainer}>
+        {activeComponent === 'CalculadoraVerde' && <CalculadoraVerde />}
+        {activeComponent === 'AprendeMais' && <AprendeMais />}
+        {activeComponent === 'ComunidadeConectada' && <ComunidadeConectada />}
       </View>
     </View>
   );
@@ -42,7 +92,6 @@ const styles = StyleSheet.create({
   container: {
     padding: 16,
     backgroundColor: '#fff',
-    // flex: 1,
   },
   searchBar: {
     flexDirection: 'row',
@@ -71,7 +120,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
     alignItems: 'center',
     justifyContent: 'center',
-    textAlign: 'center'
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,  
+    elevation: 5
   },
   highlightButton: {
     backgroundColor: '#B6D985',
@@ -80,11 +133,14 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: '#333',
     justifyContent: 'center',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   highlightText: {
     color: '#2c6e49',
     fontWeight: 'bold',
+  },
+  contentContainer: {
+    marginTop: 16,
   },
 });
 
