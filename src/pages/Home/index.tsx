@@ -1,60 +1,20 @@
 import React from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, FlatList, Image, SafeAreaView, ScrollView  } from "react-native";
 import Header from "../../../components/Header";
-import HomeHeader from "../../../components/HomeHeader"; // O Header que criamos anteriormente
+import HomeHeader from "../../../components/HomeHeader"; 
+import CalculadoraVerde from "../../../components/CalculadoraVerde";
 import { Picker } from "@react-native-picker/picker";
 
 
 const App: React.FC = () => {
-  const recommendations = [
-    { id: "1", image: "https://via.placeholder.com/100", name: "Recomendação 1" },
-    { id: "2", image: "https://via.placeholder.com/100", name: "Recomendação 2" },
-    { id: "3", image: "https://via.placeholder.com/100", name: "Recomendação 3" },
-  ];
 
   return (  
     <ScrollView style={styles.container}>
-      {/* Header */}
+      
       <Header />
 
       <HomeHeader />
-
       
-
-      {/* Calculator */}
-      <View style={styles.calculatorContainer}>
-        <Text style={styles.calculatorTitle}>Calculadora Verde</Text>
-        <Picker style={styles.picker}>
-          <Picker.Item label="Material" value="material" />
-        </Picker>
-        <View style={styles.quantityContainer}>
-          <TouchableOpacity style={styles.quantityButton}>
-            <Text style={styles.quantityButtonText}>-</Text>
-          </TouchableOpacity>
-          <Text style={styles.quantityValue}>0</Text>
-          <TouchableOpacity style={styles.quantityButton}>
-            <Text style={styles.quantityButtonText}>+</Text>
-          </TouchableOpacity>
-        </View>
-        <TouchableOpacity style={styles.calculateButton}>
-          <Text style={styles.calculateButtonText}>Calcular</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Recommendations */}
-      <Text style={styles.recommendationsTitle}>Recomendações</Text>
-      <FlatList
-        data={recommendations}
-        horizontal
-        renderItem={({ item }) => (
-          <View style={styles.recommendationItem}>
-            <Image source={{ uri: item.image }} style={styles.recommendationImage} />
-            <Text style={styles.recommendationName}>{item.name}</Text>
-          </View>
-        )}
-        keyExtractor={(item) => item.id}
-        showsHorizontalScrollIndicator={false}
-      />
     </ScrollView> 
   );
 };
