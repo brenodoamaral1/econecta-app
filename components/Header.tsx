@@ -1,61 +1,65 @@
-import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
- // Certifique-se de ter o ícone na pasta correta
+import React from 'react';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import Divider from './Divider';
 
-const Header = () => {
+import Star from '../assets/Star.svg';
+
+const Header: React.FC = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.textContainer}>
-        <Text style={styles.greetingText}>Olá, Koda Lima!</Text>
-        <View style={styles.membershipContainer}>
-          {/* <StarIcon width={16} height={16} fill="#A3A3A3" style={styles.starIcon} /> */}
-          <Text style={styles.membershipText}>PRATA</Text>
+    <View>
+        <View style={styles.contentContainer}>
+        <View style={styles.textContainer}>
+            <Text style={styles.greeting}>Olá, Koda Lima!</Text>
+            <View style={styles.levelContainer}>
+            <Star />
+            <Text style={styles.level}>PRATA</Text>
+            </View>
         </View>
-      </View>
-      <Image
-        style={styles.profileImage}
-        source={{uri: '../../assets/images/profileimage1.jpg'}}
+        <Image
+            source={{
+            uri: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Substitua pela URL da sua imagem
+            }}
+            style={styles.profileImage}
         />
-
+        </View>
+        <Divider />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  contentContainer: {
+    display: 'flex',
     marginTop: 60,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: 16,
-    backgroundColor: "#fff",
+    marginBottom: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#fff',
   },
   textContainer: {
     flex: 1,
   },
-  greetingText: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#333",
+  greeting: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#333',
   },
-  membershipContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+  levelContainer: {
     marginTop: 4,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
-  starIcon: {
-    marginRight: 4,
-  },
-  membershipText: {
-    fontSize: 14,
-    fontWeight: "bold",
-    color: "#A3A3A3",
-    textTransform: "uppercase",
+  level: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#999',
+    marginLeft: 5,
   },
   profileImage: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
+    width: 90,
+    height: 90,
+    borderRadius: 20,
   },
 });
 
