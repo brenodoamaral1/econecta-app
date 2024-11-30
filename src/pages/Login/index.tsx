@@ -8,10 +8,10 @@ import {
   Image,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import Checkbox from 'expo-checkbox'
+import Checkbox from "expo-checkbox";
 
 interface LoginProps {
-  navigation: any; // Altere se usar tipagem específica para navegação
+  navigation: any;
 }
 
 const Login: React.FC<LoginProps> = ({ navigation }) => {
@@ -26,7 +26,10 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
     <View style={styles.container}>
       {/* Logo */}
       <View style={styles.header}>
-        <Text style={styles.logoText}>econecta</Text>
+        <Image
+          source={require("../../../assets/logo.png")}
+          style={styles.logoImage}
+        />
       </View>
 
       {/* Formulário */}
@@ -37,7 +40,7 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
         <TextInput
           style={styles.input}
           placeholder="nome de usuário ou e-mail"
-          placeholderTextColor="#6C6C6C"
+          placeholderTextColor="#ADB89D"
         />
 
         {/* Senha */}
@@ -45,7 +48,7 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
           <TextInput
             style={styles.input}
             placeholder="senha"
-            placeholderTextColor="#6C6C6C"
+            placeholderTextColor="#ADB89D"
             secureTextEntry={!passwordVisible}
           />
           <TouchableOpacity
@@ -55,7 +58,7 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
             <Feather
               name={passwordVisible ? "eye-off" : "eye"}
               size={20}
-              color="#6C6C6C"
+              color="#83D1C4"
             />
           </TouchableOpacity>
         </View>
@@ -67,6 +70,7 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
               value={rememberMe}
               onValueChange={setRememberMe}
               style={styles.checkbox}
+              color={rememberMe ? '#B6D985' : undefined}
             />
             <Text style={styles.rememberMeText}>Lembrar-me</Text>
           </View>
@@ -98,47 +102,43 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#4CAF50",
+    backgroundColor: "#fff",
   },
   header: {
     alignItems: "center",
     justifyContent: "center",
-    paddingVertical: 60,
+    paddingVertical: 81,
   },
-  logoText: {
-    fontSize: 36,
-    fontWeight: "bold",
-    color: "#fff",
-    fontFamily: "Arial",
+  logoImage: {
+    width: 200,
+    height: 50,
+    resizeMode: "contain",
   },
   formContainer: {
     flex: 1,
-    backgroundColor: "#fff",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    padding: 20,
+    paddingHorizontal: 20,
     alignItems: "center",
+    textAlign: 'left',
+    justifyContent: 'flex-start'
   },
   loginTitle: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#4CAF50",
+    color: "#4D4D4D",
     marginBottom: 20,
+    alignSelf: 'flex-start'
+    
   },
   input: {
     width: "100%",
-    backgroundColor: "#F2F2F2",
-    borderRadius: 20,
+    backgroundColor: "#DEEFC6",
+    borderRadius: 18,
     paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingVertical: 12,
     marginBottom: 16,
     fontSize: 14,
-    color: "#333",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
+    color: "#4D4D4D",
+    
   },
   passwordContainer: {
     width: "100%",
@@ -147,42 +147,52 @@ const styles = StyleSheet.create({
   passwordToggle: {
     position: "absolute",
     right: 20,
-    top: 12,
+    top: 14,
   },
   optionsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     width: "100%",
     marginBottom: 20,
+    alignItems: "center",
   },
   rememberMeContainer: {
     flexDirection: "row",
     alignItems: "center",
+    margin: 5
   },
   checkbox: {
     marginRight: 8,
+    width: 16,
+    height: 16,
   },
   rememberMeText: {
     fontSize: 12,
-    color: "#6C6C6C",
+    color: '#000000',
+    fontWeight: 'bold'
   },
   forgotPassword: {
     fontSize: 12,
-    color: "#4CAF50",
-    textDecorationLine: "underline",
+    color: "#000000",
+    fontWeight: 'bold'
   },
   loginButton: {
-    width: "100%",
-    backgroundColor: "#8BC34A",
-    borderRadius: 20,
-    paddingVertical: 12,
+    width: "50%",
+    backgroundColor: "#B6D985",
+    borderRadius: 50,
+    paddingVertical: 14,
     alignItems: "center",
-    marginBottom: 16,
+    marginBottom: 180,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
   },
   loginButtonText: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "#fff",
+    color: "#004D85",
   },
   registerContainer: {
     marginTop: 10,
@@ -192,9 +202,8 @@ const styles = StyleSheet.create({
     color: "#6C6C6C",
   },
   registerLink: {
-    color: "#4CAF50",
-    fontWeight: "bold",
-    textDecorationLine: "underline",
+    color: "#004D85",
+    fontWeight: 'bold'
   },
 });
 
