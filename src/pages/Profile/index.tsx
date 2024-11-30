@@ -7,15 +7,14 @@ import {
   TouchableOpacity,
   Switch,
 } from "react-native";
-import { MaterialIcons, Feather, FontAwesome } from "@expo/vector-icons"; // Ícones de exemplo
-import ProfileIcon from '../../../assets/ProfileIcon.svg'
-import NotificationIcon from '../../../assets/NotificationIcon.svg'
-import LocIcon from '../../../assets/LocIcon.svg'
-import HelpIcon from '../../../assets/HelpIcon.svg'
-import DeleteIcon from '../../../assets/DeleteIcon.svg'
-import LeaveIcon from '../../../assets/LeaveIcon.svg'
+import ProfileIcon from "../../../assets/ProfileIcon.svg";
+import NotificationIcon from "../../../assets/NotificationIcon.svg";
+import LocIcon from "../../../assets/LocIcon.svg";
+import HelpIcon from "../../../assets/HelpIcon.svg";
+import DeleteIcon from "../../../assets/DeleteIcon.svg";
+import LeaveIcon from "../../../assets/LeaveIcon.svg";
 
-const Perfil: React.FC = () => {
+const Perfil: React.FC<{ navigation: any }> = ({ navigation }) => {
   const [notificacoes, setNotificacoes] = useState<boolean>(true);
   const [localizacao, setLocalizacao] = useState<boolean>(true);
 
@@ -30,10 +29,10 @@ const Perfil: React.FC = () => {
           style={styles.profileImage}
         />
       </View>
-      
+
       {/* Itens de Configuração */}
       <View style={styles.itemContainer}>
-      <Text style={styles.profileName}>Koda Lima</Text>
+        <Text style={styles.profileName}>Koda Lima</Text>
         {/* Informações de perfil */}
         <TouchableOpacity style={styles.item}>
           <ProfileIcon />
@@ -73,13 +72,14 @@ const Perfil: React.FC = () => {
         {/* Apagar conta */}
         <TouchableOpacity style={styles.item}>
           <DeleteIcon />
-          <Text style={[styles.itemText, styles.dangerText]}>
-            Apagar conta
-          </Text>
+          <Text style={[styles.itemText, styles.dangerText]}>Apagar conta</Text>
         </TouchableOpacity>
 
         {/* Sair */}
-        <TouchableOpacity style={styles.item}>
+        <TouchableOpacity
+          style={styles.item}
+          onPress={() => navigation.navigate("Login")} // Navegação para a tela de Login
+        >
           <LeaveIcon />
           <Text style={[styles.itemText, styles.dangerText]}>Sair</Text>
         </TouchableOpacity>
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   profileImage: {
-    position: 'absolute',
+    position: "absolute",
     width: 150,
     height: 150,
     borderRadius: 20,
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     color: "#4D4D4D",
     marginTop: -15,
     marginBottom: 30,
-    alignSelf: 'center',
+    alignSelf: "center",
   },
   itemContainer: {
     marginTop: 60,
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   },
   itemText: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: "#4D4D4D",
     flex: 1,
     marginLeft: 10,

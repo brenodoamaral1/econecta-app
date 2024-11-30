@@ -1,25 +1,31 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
 import { View } from "react-native";
 
-import Home from './pages/Home';
-import EcoAjuda from './pages/EcoAjuda';
-import Profile from './pages/Profile';
-import Trophies from './pages/Trophies';
+// Páginas
+import Home from "./pages/Home";
+import EcoAjuda from "./pages/EcoAjuda";
+import Profile from "./pages/Profile";
+import Trophies from "./pages/Trophies";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
-// Importando dois SVGs para cada estado (ativo/inativo)
-import EcoAjudaIconActive from '../assets/EcoAjudaIconActive.svg';
-import EcoAjudaIconInactive from '../assets/EcoAjudaIconInactive.svg';
-import HomeIconActive from '../assets/HomeIconActive.svg';
-import HomeIconInactive from '../assets/HomeIconInactive.svg';
-import ProfileIconActive from '../assets/ProfileIconActive.svg';
-import ProfileIconInactive from '../assets/ProfileIconInactive.svg';
-import TrophiesIconActive from '../assets/TrophiesIconActive.svg';
-import TrophiesIconInactive from '../assets/TrophiesIconInactive.svg';
+// Ícones
+import EcoAjudaIconActive from "../assets/EcoAjudaIconActive.svg";
+import EcoAjudaIconInactive from "../assets/EcoAjudaIconInactive.svg";
+import HomeIconActive from "../assets/HomeIconActive.svg";
+import HomeIconInactive from "../assets/HomeIconInactive.svg";
+import ProfileIconActive from "../assets/ProfileIconActive.svg";
+import ProfileIconInactive from "../assets/ProfileIconInactive.svg";
+import TrophiesIconActive from "../assets/TrophiesIconActive.svg";
+import TrophiesIconInactive from "../assets/TrophiesIconInactive.svg";
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
-export default function Routes() {
+function TabRoutes() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -61,11 +67,55 @@ export default function Routes() {
         },
       })}
     >
-      <Tab.Screen options={{tabBarIconStyle: {top: 20}, headerShown: false}} name="Home" component={Home} />
-      <Tab.Screen options={{tabBarIconStyle: {top: 20}, headerShown: false}} name="EcoAjuda" component={EcoAjuda} />
-      <Tab.Screen options={{tabBarIconStyle: {top: 20}, headerShown: false}} name="Trophies" component={Trophies} />
-      <Tab.Screen options={{tabBarIconStyle: {top: 20}, headerShown: false}} name="Profile" component={Profile} />
+      <Tab.Screen
+        options={{ tabBarIconStyle: { top: 20 }, headerShown: false }}
+        name="Home"
+        component={Home}
+      />
+      <Tab.Screen
+        options={{ tabBarIconStyle: { top: 20 }, headerShown: false }}
+        name="EcoAjuda"
+        component={EcoAjuda}
+      />
+      <Tab.Screen
+        options={{ tabBarIconStyle: { top: 20 }, headerShown: false }}
+        name="Trophies"
+        component={Trophies}
+      />
+      <Tab.Screen
+        options={{ tabBarIconStyle: { top: 20 }, headerShown: false }}
+        name="Profile"
+        component={Profile}
+      />
     </Tab.Navigator>
   );
 }
 
+export default function Routes() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        {/* Tela de Login */}
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ headerShown: false }}
+        />
+
+        {/* Tela de Cadastro */}
+        <Stack.Screen
+          name="Register"
+          component={Register}
+          options={{ headerShown: false }}
+        />
+
+        {/* Tab Navigator com as telas principais */}
+        <Stack.Screen
+          name="TabRoutes"
+          component={TabRoutes}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
