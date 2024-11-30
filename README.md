@@ -53,7 +53,7 @@ Wictor Melo<br/>
 
 ## Machine Learning 🧠
 🔗 **Repositório do Modelo de Recomendação:**  
-[clone https://github.com/luislauriano/econecta](https://github.com/luislauriano/econecta)
+[https://github.com/luislauriano/econecta](https://github.com/luislauriano/econecta)
 
 🚀 **Teste o modelo diretamente pelo link:**  
 Acesse aqui: [https://econecta.streamlit.app/](https://econecta.streamlit.app/)
@@ -69,7 +69,7 @@ Usar um Dispositivo Mobile
 
 Abra o terminal e execute o seguinte comando para clonar o repositório do projeto:
 ```bash
-https://github.com/brenodoamaral1/econecta-app.git
+clone https://github.com/brenodoamaral1/econecta-app.git
 ```
 
 ### Passo 3: Instalar Dependências
