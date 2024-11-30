@@ -69,7 +69,7 @@ Usar um Dispositivo Mobile
 
 Abra o terminal e execute o seguinte comando para clonar o repositório do projeto:
 ```bash
-clone https://github.com/brenodoamaral1/econecta-app.git
+git clone https://github.com/brenodoamaral1/econecta-app.git
 ```
 
 ### Passo 3: Instalar Dependências
