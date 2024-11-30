@@ -64,10 +64,10 @@ export default function Routes() {
         },
       })}
     >
-      <Tab.Screen options={{tabBarIconStyle: {top: 10}, headerShown: false}} name="Home" component={Home} />
-      <Tab.Screen options={{tabBarIconStyle: {top: 10}, headerShown: false}} name="EcoAjuda" component={EcoAjuda} />
-      <Tab.Screen options={{tabBarIconStyle: {top: 10}, headerShown: false}} name="Trophies" component={Trophies} />
-      <Tab.Screen options={{tabBarIconStyle: {top: 10}, headerShown: false}} name="Profile" component={Profile} />
+      <Tab.Screen options={{tabBarIconStyle: {top: 20}, headerShown: false}} name="Home" component={Home} />
+      <Tab.Screen options={{tabBarIconStyle: {top: 20}, headerShown: false}} name="EcoAjuda" component={EcoAjuda} />
+      <Tab.Screen options={{tabBarIconStyle: {top: 20}, headerShown: false}} name="Trophies" component={Trophies} />
+      <Tab.Screen options={{tabBarIconStyle: {top: 20}, headerShown: false}} name="Profile" component={Profile} />
     </Tab.Navigator>
   );
 }
