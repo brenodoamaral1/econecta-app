@@ -11,7 +11,7 @@ import { Feather } from '@expo/vector-icons'; // Ou outra lib de ícones
 const SearchComponent: React.FC = () => {
   return (
     <View style={styles.container}>
-      {/* Campo de busca */}
+      
       <View style={styles.searchBar}>
         <TextInput
           placeholder="O que você deseja procurar?"
