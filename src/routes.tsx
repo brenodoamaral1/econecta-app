@@ -26,9 +26,6 @@ export default function Routes() {
         tabBarShowLabel: false,
         tabBarStyle: {
           height: 100,
-          display: 'flex',
-          justifyContent: 'center',
-          alignContent: "center",
           backgroundColor: "#fff",
         },
         tabBarIcon: ({ focused }) => {

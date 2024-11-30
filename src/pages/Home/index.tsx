@@ -1,195 +1,32 @@
-import React from "react";
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, FlatList, Image, SafeAreaView, ScrollView  } from "react-native";
-import Header from "../../../components/Header";
-import HomeHeader from "../../../components/HomeHeader"; // O Header que criamos anteriormente
-import { Picker } from "@react-native-picker/picker";
+import { StyleSheet, Text, View, ScrollView } from 'react-native'
+import React from 'react'
+import Header from '../../../components/Header'
+import HomeHeader from '../../../components/HomeHeader'
+import AprendeMais from '../../../components/AprendeMais'
 
 
-const App: React.FC = () => {
-  const recommendations = [
-    { id: "1", image: "https://via.placeholder.com/100", name: "Recomendação 1" },
-    { id: "2", image: "https://via.placeholder.com/100", name: "Recomendação 2" },
-    { id: "3", image: "https://via.placeholder.com/100", name: "Recomendação 3" },
-  ];
-
-  return (  
-    <ScrollView style={styles.container}>
-      {/* Header */}
-      <Header />
-
-      <HomeHeader />
-
-      
-
-      {/* Calculator */}
-      <View style={styles.calculatorContainer}>
-        <Text style={styles.calculatorTitle}>Calculadora Verde</Text>
-        <Picker style={styles.picker}>
-          <Picker.Item label="Material" value="material" />
-        </Picker>
-        <View style={styles.quantityContainer}>
-          <TouchableOpacity style={styles.quantityButton}>
-            <Text style={styles.quantityButtonText}>-</Text>
-          </TouchableOpacity>
-          <Text style={styles.quantityValue}>0</Text>
-          <TouchableOpacity style={styles.quantityButton}>
-            <Text style={styles.quantityButtonText}>+</Text>
-          </TouchableOpacity>
-        </View>
-        <TouchableOpacity style={styles.calculateButton}>
-          <Text style={styles.calculateButtonText}>Calcular</Text>
-        </TouchableOpacity>
+const Home = () => {
+  return (
+  <ScrollView>
+    <View style={styles.container}>
+      <View>
+        <Header />
       </View>
-
-      {/* Recommendations */}
-      <Text style={styles.recommendationsTitle}>Recomendações</Text>
-      <FlatList
-        data={recommendations}
-        horizontal
-        renderItem={({ item }) => (
-          <View style={styles.recommendationItem}>
-            <Image source={{ uri: item.image }} style={styles.recommendationImage} />
-            <Text style={styles.recommendationName}>{item.name}</Text>
-          </View>
-        )}
-        keyExtractor={(item) => item.id}
-        showsHorizontalScrollIndicator={false}
-      />
-    </ScrollView> 
-  );
-};
+      <View>
+        <HomeHeader />
+      </View>
+      <View>
+        <AprendeMais />
+      </View>
+    </View>
+  </ScrollView>  
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    paddingHorizontal: 16,
+    backgroundColor: '#fff',
   },
-  searchContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#E7F3E7",
-    borderRadius: 10,
-    marginVertical: 16,
-    paddingHorizontal: 12,
-  },
-  searchInput: {
-    flex: 1,
-    fontSize: 16,
-    color: "#000",
-    paddingVertical: 10,
-  },
-  searchButton: {
-    padding: 10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  searchIcon: {
-    fontSize: 18,
-    color: "#67B567",
-  },
-  categoriesContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginVertical: 16,
-  },
-  categoryButton: {
-    flex: 1,
-    backgroundColor: "#67B567",
-    padding: 10,
-    borderRadius: 10,
-    marginHorizontal: 5,
-    alignItems: "center",
-  },
-  categoryButtonText: {
-    color: "#fff",
-    fontWeight: "bold",
-  },
-  categoryButtonOutline: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: "#67B567",
-    padding: 10,
-    borderRadius: 10,
-    marginHorizontal: 5,
-    alignItems: "center",
-  },
-  categoryButtonOutlineText: {
-    color: "#67B567",
-    fontWeight: "bold",
-  },
-  calculatorContainer: {
-    backgroundColor: "#E7F3E7",
-    borderRadius: 10,
-    padding: 16,
-    marginVertical: 16,
-  },
-  calculatorTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 16,
-    color: "#333",
-  },
-  picker: {
-    backgroundColor: "#fff",
-    borderRadius: 10,
-    marginBottom: 16,
-  },
-  quantityContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 16,
-  },
-  quantityButton: {
-    width: 40,
-    height: 40,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#67B567",
-    borderRadius: 20,
-  },
-  quantityButtonText: {
-    color: "#fff",
-    fontWeight: "bold",
-    fontSize: 18,
-  },
-  quantityValue: {
-    fontSize: 16,
-    fontWeight: "bold",
-    marginHorizontal: 20,
-  },
-  calculateButton: {
-    backgroundColor: "#67B567",
-    padding: 16,
-    borderRadius: 10,
-    alignItems: "center",
-  },
-  calculateButtonText: {
-    color: "#fff",
-    fontWeight: "bold",
-    fontSize: 16,
-  },
-  recommendationsTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 16,
-    color: "#333",
-  },
-  recommendationItem: {
-    marginRight: 16,
-    alignItems: "center",
-  },
-  recommendationImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 10,
-    marginBottom: 8,
-  },
-  recommendationName: {
-    fontSize: 14,
-    color: "#333",
-  },
-});
+})
 
-export default App;
+export default Home
